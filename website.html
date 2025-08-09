@@ -1,24 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog Website</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Blog</title>
+
+ 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>My Blog</h1>
-    <form id="blogForm">
-      <input type="text" id="title" placeholder="Blog Title" required />
-      <textarea id="content" placeholder="Blog Content" required></textarea>
-      <button type="submit">Post</button>
-    </form>
-    <div id="posts"></div>
+    <header class="site-header">
+      <h1>My Blog</h1>
+      <p class="lead">Write, share and read posts. Images supported.</p>
+    </header>
+
+    <section class="card" id="editorCard">
+      <form id="blogForm" class="editor">
+        <input type="text" id="title" placeholder="Blog Title" required />
+        <textarea id="content" placeholder="Write your post here..." required></textarea>
+        <input type="file" id="image" accept="image/*" />
+        <div class="preview" id="preview" style="display:none;"></div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn" id="postBtn">Post</button>
+          <button type="button" class="btn alt" id="clearBtn">Clear</button>
+          <div id="status" class="status"></div>
+        </div>
+      </form>
+    </section>
+
+    <section id="posts" class="posts"></section>
   </div>
 
+ 
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
+  <!-- app script -->
   <script src="app.js"></script>
 </body>
 </html>
